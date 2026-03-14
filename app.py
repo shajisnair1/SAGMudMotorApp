@@ -45,7 +45,7 @@ if not st.session_state.authed:
     if st.button("Sign in"):
         if user == VALID_USER and pwd == VALID_PASS:
             st.session_state.authed = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Invalid credentials")
     st.stop()
