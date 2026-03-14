@@ -14,22 +14,24 @@ from openpyxl.styles import PatternFill
 st.set_page_config(layout="wide", page_title="SAG ALSAHRA - Technical System")
 
 # ---------------- PATHS ----------------
-LOGO_PATH = r"C:\Users\User\Desktop\MyMudMotorApp\SAG_ALSAHRA_LOGO.png"
-MWD_HEADER = r"C:\Users\User\Desktop\MyMudMotorApp\MWD HEADER.png"
-MOTOR_HEADER = r"C:\Users\User\Desktop\MyMudMotorApp\MUD MOTORHEADER.png"
+BASE_DIR = Path(__file__).parent
+LOGO_PATH = BASE_DIR / "SAG_ALSAHRA_LOGO.png"
+MWD_HEADER = BASE_DIR / "MWD HEADER.png"
+MOTOR_HEADER = BASE_DIR / "MUD MOTORHEADER.png"
 
 # Templates
-MPI_TEMPLATE = r"C:\Users\User\Desktop\MyMudMotorApp\templates\mwd_lwd_report.xlsx"
-LPT_TEMPLATE = r"C:\Users\User\Desktop\MyMudMotorApp\templates\speciality_tool_report.xlsx"
-RB_TEMPLATE = r"C:\Users\User\Desktop\MyMudMotorApp\templates\mud motor templates\RB MUD MOTOR.xlsx"
-RS_TEMPLATE = r"C:\Users\User\Desktop\MyMudMotorApp\templates\mud motor templates\RS MUD MOTOR.xlsx"
+MPI_TEMPLATE = BASE_DIR / "templates" / "mwd_lwd_report.xlsx"
+LPT_TEMPLATE = BASE_DIR / "templates" / "speciality_tool_report.xlsx"
+RB_TEMPLATE = BASE_DIR / "templates" / "mud motor templates" / "RB MUD MOTOR.xlsx"
+RS_TEMPLATE = BASE_DIR / "templates" / "mud motor templates" / "RS MUD MOTOR.xlsx"
 
 # Output folders
-REPORT_OUTPUT = r"C:\Users\User\Desktop\MyMudMotorApp\GENERATED REPORTS"
-os.makedirs(REPORT_OUTPUT, exist_ok=True)
-PDF_OUTPUT = r"C:\Users\User\Desktop\MyMudMotorApp\SYSTEM REPORTS"
-os.makedirs(PDF_OUTPUT, exist_ok=True)
-SESSION_SAVE_PATH = Path("session_state.json")
+REPORT_OUTPUT = BASE_DIR / "GENERATED REPORTS"
+REPORT_OUTPUT.mkdir(parents=True, exist_ok=True)
+PDF_OUTPUT = BASE_DIR / "SYSTEM REPORTS"
+PDF_OUTPUT.mkdir(parents=True, exist_ok=True)
+SESSION_SAVE_PATH = BASE_DIR / "session_state.json"
+
 
 # ---------------- SIMPLE AUTH ----------------
 VALID_USER = st.secrets.get("APP_USER", os.environ.get("APP_USER", "sagreport"))
